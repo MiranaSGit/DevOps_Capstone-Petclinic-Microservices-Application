@@ -1,5 +1,5 @@
 ---
-- hosts: role_grand-master
+- hosts: role_grand_master
   tasks:
     - name: Get swarm join-token for workers
       shell: docker swarm join-token worker | grep -i 'docker'
