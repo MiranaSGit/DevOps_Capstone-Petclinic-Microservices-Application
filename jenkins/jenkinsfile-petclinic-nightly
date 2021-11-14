@@ -137,8 +137,8 @@ pipeline {
             steps {
                 echo 'Deploying App on Swarm'
                 sh 'envsubst < docker-compose-swarm-dev.yml > docker-compose-swarm-dev-tagged.yml'
-                // the variables in docker-compose-swarm-dev.yml will be set after job run. So int he beginning they are not set. by "envsubst" command, we transfer those variables' values to docker-compose-swarm-dev-tagged.yml
-                // docker-compose-swarm-dev-tagged.yml will be used on deployment within in pb_deploy_app_on_docker_swarm.yaml
+                /* the variables in docker-compose-swarm-dev.yml will be set after job run. So in the beginning they are not set. by "envsubst" command, we transfer those variables' values to docker-compose-swarm-dev-tagged.yml
+                */ docker-compose-swarm-dev-tagged.yml will be used on deployment within in pb_deploy_app_on_docker_swarm.yaml
                 sh 'ansible-playbook -i ./ansible/inventory/dev_stack_dynamic_inventory_aws_ec2.yaml -b --extra-vars "workspace=${WORKSPACE} app_name=${APP_NAME} aws_region=${AWS_REGION} ecr_registry=${ECR_REGISTRY}" ./ansible/playbooks/pb_deploy_app_on_docker_swarm.yaml'
             // workspace, app_name,ecr_registry and aws_region variable will be required in pb_deploy_app_on_docker_swarm.yaml file.
             }
