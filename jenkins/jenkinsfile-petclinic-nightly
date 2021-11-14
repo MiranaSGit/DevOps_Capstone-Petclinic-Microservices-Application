@@ -136,7 +136,7 @@ pipeline {
         stage('Deploy App on Docker Swarm'){
             steps {
                 echo 'Deploying App on Swarm'
-                sh 'envsubst < docker-compose-swarm-dev.yml > docker-compose-swarm-dev-tagged.yml'
+                //sh 'envsubst < docker-compose-swarm-dev.yml > docker-compose-swarm-dev-tagged.yml'
                 /* 
                 the variables in docker-compose-swarm-dev.yml will be set after job run. So in the beginning they are not set. by "envsubst" command, we transfer those variables' values to docker-compose-swarm-dev-tagged.yml
                  docker-compose-swarm-dev-tagged.yml will be used on deployment within in pb_deploy_app_on_docker_swarm.yaml
