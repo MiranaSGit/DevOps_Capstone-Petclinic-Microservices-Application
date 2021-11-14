@@ -1,9 +1,10 @@
 ---
-- hosts: role_grand_master
+- hosts: role_grand-master
   tasks:
     - name: Copy docker compose file to grand master
       copy:
-        src: "{{ workspace }}/docker-compose-swarm-dev-tagged.yml"
+        #src: "{{ workspace }}/docker-compose-swarm-dev-tagged.yml"
+        src: "{{ workspace }}/docker-compose-swarm-dev.yml"
         dest: /home/ec2-user/docker-compose-swarm-dev-tagged.yml
 
     - name: get login credentials for ecr
