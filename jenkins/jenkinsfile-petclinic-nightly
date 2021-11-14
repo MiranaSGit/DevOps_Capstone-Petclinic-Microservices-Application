@@ -66,6 +66,12 @@ pipeline {
             }
         }
         stage('Push Images to ECR Repo') {
+            /* After you have installed and configured the AWS CLI, authenticate the Docker CLI to your default registry. That way, the docker command can push and pull images with Amazon ECR. The AWS CLI provides a get-login-password command to simplify the authentication process.
+
+            The get-login-password is the preferred method for authenticating to an Amazon ECR private registry when using the AWS CLI. Ensure that you have configured your AWS CLI to interact with AWS. For more information, see AWS CLI configuration basics in the AWS Command Line Interface User Guide.
+
+            When passing the Amazon ECR authorization token to the docker login command, use the value AWS for the username and specify the Amazon ECR registry URI you want to authenticate to. If authenticating to multiple registries, you must repeat the command for each registry.
+            */
             steps {
                 echo "Pushing ${APP_NAME} App Images to ECR Repo"
                 sh ". ./jenkins/push-dev-docker-images-to-ecr.sh"
