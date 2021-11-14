@@ -161,7 +161,6 @@ pipeline {
             }
         }
     }
-/*
     post {
         always {
             echo 'Deleting all local images'
@@ -180,5 +179,4 @@ pipeline {
             sh "rm -rf ${CFN_KEYPAIR}"
         }
     }
- */
 }
