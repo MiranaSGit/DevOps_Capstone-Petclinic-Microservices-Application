@@ -5,6 +5,9 @@ pipeline {
         APP_NAME="petclinic"
         APP_REPO_NAME="mirana-repo/petclinic-app-qa"
         APP_STACK_NAME="MiranaS-petclinic-App-QA-1"
+        /*
+        As we don't create infrastructure in this pipeline it is important to get running stack's name from CloudFormation.
+        */
         CFN_KEYPAIR="mirana-petclinic-qa.key"
         AWS_ACCOUNT_ID=sh(script:'export PATH="$PATH:/usr/local/bin" && aws sts get-caller-identity --query Account --output text', returnStdout:true).trim()
         AWS_REGION="us-east-1"
