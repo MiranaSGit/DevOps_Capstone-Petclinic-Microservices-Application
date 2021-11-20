@@ -1,0 +1,20 @@
+nodes:
+  - address: 3.234.243.40 #public ip address of rancher server
+    internal_address: 172.31.73.146 #private ip address of rancher server
+    user: ubuntu
+    role: [controlplane, worker, etcd]
+
+services:
+  etcd:
+    snapshot: true
+    creation: 6h
+    retention: 24h
+
+ssh_key_path: ~/.ssh/call-rancher.key.pem
+
+# Required for external TLS termination with
+# ingress-nginx v0.22+
+ingress:
+  provider: nginx
+  options:
+    use-forwarded-headers: "true" # as there is an aws loadbalancer in front of nginx load balancer, we have to use this  option. 
