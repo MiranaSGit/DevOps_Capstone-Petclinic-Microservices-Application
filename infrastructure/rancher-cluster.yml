@@ -1,6 +1,6 @@
 nodes:
-  - address: 3.234.243.40 #public ip address of rancher server
-    internal_address: 172.31.73.146 #private ip address of rancher server
+  - address: 3.89.118.96 #public ip address of rancher server
+    internal_address: 172.31.21.70 #private ip address of rancher server
     user: ubuntu
     role: [controlplane, worker, etcd]
 
